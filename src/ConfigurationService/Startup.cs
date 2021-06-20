@@ -1,4 +1,8 @@
 ﻿using System;
+using ConfigurationService.Common.Contracts;
+using ConfigurationService.Core;
+using ConfigurationService.Core.Providers;
+using ConfigurationService.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +30,9 @@ namespace ConfigurationService
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<IEntityConfigurationProvider, EntityConfigurationProvider>();
+            services.AddSingleton<IEntityFieldsProvider, EntityFieldsProvider>();
+            services.AddSingleton<IDataProvider, DataProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,12 +5,13 @@ using Xunit;
 
 namespace ConfigurationService.Tests
 {
-    public class UnitTest1
+    public class EntityConfigurationProvider
     {
         [Fact]
         public void Test1()
         {
-            DataProvider.GetEntityConfiguration("sad", new List<string> { "safa" });
+            var provider = new DataProvider();
+            provider.GetEntityConfiguration("sad", new List<string> { "safa" });
         }
     }
 }

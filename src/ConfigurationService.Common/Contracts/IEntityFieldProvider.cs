@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ConfigurationService.Common.Contracts
 {
-    public interface IEntityFieldProvider
+    public interface IEntityFieldsProvider
     {
         Task<List<string>> GetFieldNamesAsync(string serviceName, string entityName);
     }

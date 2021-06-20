@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ConfigurationService.Common.Contracts;
+using ConfigurationService.Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,28 @@ namespace ConfigurationService.Controllers
     [ApiController]
     public class ConfigurationController : ControllerBase
     {
-        // GET: api/Configuration
-        [HttpGet]
-        public IEnumerable<string> Get()
+        IEntityConfigurationProvider _entityConfigurationProvider;
+        public ConfigurationController(IEntityConfigurationProvider entityConfigurationProvider)
         {
-            return new string[] { "value1", "value2" };
+            _entityConfigurationProvider = entityConfigurationProvider;
         }
 
-        // GET: api/Configuration/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/Configuration/Product
+        [HttpGet("{entityName}", Name = "Get")]
+        public async Task<IActionResult> GetAsync(string entityName)
         {
-            return "value";
+            var entityConfiguration = await _entityConfigurationProvider.GetEntityConfigurationAsync(entityName);
+
+            return Ok(entityConfiguration);
         }
 
         // POST: api/Configuration
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> PostAsync([FromBody] EntityConfiguration entityConfiguration)
         {
-        }
+            var status = await _entityConfigurationProvider.SaveEntityConfigurationAsync(entityConfiguration);
 
-        // PUT: api/Configuration/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(entityConfiguration);
         }
     }
 }

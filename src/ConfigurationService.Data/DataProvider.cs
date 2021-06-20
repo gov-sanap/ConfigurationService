@@ -14,7 +14,7 @@ namespace ConfigurationService.Data
         {
             try
             {
-                using (var ctx = new EntityConfigurationContext())
+                using (var ctx = new EntityConfigurationContext("Data Source =.;Initial Catalog = EntityConfigurationDB;Integrated Security = true"))
                 {
                     //ctx.Database.ExecuteSqlCommand("Select * from ");
                     var entityConfigurationData = new EntityConfigurationData() { Id = Guid.NewGuid(), EntityName = "something", FieldName = "firlsd", FieldSource = "source1", IsRequired = true, MaxLength = 120 };

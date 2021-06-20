@@ -5,10 +5,11 @@ using System.Net;
 using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using Newtonsoft.Json;
+using ConfigurationService.Common.Contracts;
 
 namespace ConfigurationService.Core.Providers
 {
-    public class EntityFieldsProvider
+    public class EntityFieldsProvider : IEntityFieldsProvider
     {
         private IConfiguration _configuration;
         public EntityFieldsProvider(IConfiguration configuration)

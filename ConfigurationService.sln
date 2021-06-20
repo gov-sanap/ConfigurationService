@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationService.Core",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationService.Tests", "tests\ConfigurationService.Tests\ConfigurationService.Tests.csproj", "{313BD8F5-13B1-40AC-9B5E-A7C71FA0AC44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationService.Models", "src\ConfigurationService.Models\ConfigurationService.Models.csproj", "{00FF46BD-E7AF-4BE6-ACD0-0C35410FA98E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationService.DataB", "ConfigurationService.DataB\ConfigurationService.DataB.csproj", "{E2F20E98-0197-4C04-9B3F-8C6F7504DBA6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationService.Common", "src\ConfigurationService.Common\ConfigurationService.Common.csproj", "{6E0F238C-928E-45D9-B324-A076846FB3C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationService.DataConsole", "src\ConfigurationService.DataConsole\ConfigurationService.DataConsole.csproj", "{9FFFE07F-E163-4ACF-ACAC-86F0C2B7944C}"
@@ -37,14 +33,6 @@ Global
 		{313BD8F5-13B1-40AC-9B5E-A7C71FA0AC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313BD8F5-13B1-40AC-9B5E-A7C71FA0AC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313BD8F5-13B1-40AC-9B5E-A7C71FA0AC44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00FF46BD-E7AF-4BE6-ACD0-0C35410FA98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00FF46BD-E7AF-4BE6-ACD0-0C35410FA98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00FF46BD-E7AF-4BE6-ACD0-0C35410FA98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00FF46BD-E7AF-4BE6-ACD0-0C35410FA98E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2F20E98-0197-4C04-9B3F-8C6F7504DBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2F20E98-0197-4C04-9B3F-8C6F7504DBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2F20E98-0197-4C04-9B3F-8C6F7504DBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2F20E98-0197-4C04-9B3F-8C6F7504DBA6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E0F238C-928E-45D9-B324-A076846FB3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E0F238C-928E-45D9-B324-A076846FB3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E0F238C-928E-45D9-B324-A076846FB3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -9,29 +9,44 @@ using ConfigurationService.Common.Contracts;
 
 namespace ConfigurationService.Core
 {
-    public class EntityConfigurationProvider
+    public class EntityConfigurationProvider : IEntityConfigurationProvider
     {
-        private IEntityFieldProvider _entityFieldProvider;
+        private IEntityFieldsProvider _entityFieldProvider;
         private IDataProvider _dataProvider;
-        public EntityConfigurationProvider(IEntityFieldProvider entityFieldProvider, IDataProvider dataProvider)
+        public EntityConfigurationProvider(IEntityFieldsProvider entityFieldProvider, IDataProvider dataProvider)
         {
             _entityFieldProvider = entityFieldProvider;
             _dataProvider = dataProvider;
         }
         public async Task<EntityConfiguration> GetEntityConfigurationAsync(string entityName)
         {
-            //throw new NotImplementedException();
-            var entityDefaultFields = await _entityFieldProvider.GetFieldNamesAsync("service1", entityName);
-            var entityCustomFields = await _entityFieldProvider.GetFieldNamesAsync("service2", entityName);
+            EntityConfiguration entityConfiguration = null;
+            try
+            {
+                var entityDefaultFields = await _entityFieldProvider.GetFieldNamesAsync("service1", entityName);
+                var entityCustomFields = await _entityFieldProvider.GetFieldNamesAsync("service2", entityName);
 
-            var allEntityFields = entityDefaultFields.Concat(entityCustomFields).ToList();
+                var allEntityFields = entityDefaultFields.Concat(entityCustomFields).ToList();
 
-            var entityConfiguration = _dataProvider.GetEntityConfiguration(entityName, allEntityFields);
+                entityConfiguration = _dataProvider.GetEntityConfiguration(entityName, allEntityFields);
+            }
+            catch(Exception ex)
+            {
+                //Log Exception
+            }
             return entityConfiguration;
         }
         public async Task<bool> SaveEntityConfigurationAsync(EntityConfiguration entityConfiguration)
         {
-            bool status = _dataProvider.SaveEntityConfiguration(entityConfiguration);
+            bool status = false;
+            try
+            {
+                status = _dataProvider.SaveEntityConfiguration(entityConfiguration);
+            }
+            catch(Exception ex)
+            {
+                //Log Exception
+            }
             return status;
         }
     }

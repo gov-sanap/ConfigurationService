@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Contracts\IDataProvider.cs" />
+    <Compile Include="Contracts\IEntityConfigurationProvider.cs" />
     <Compile Include="Contracts\IEntityFieldProvider.cs" />
     <Compile Include="Models\EntityConfiguration.cs" />
     <Compile Include="Models\Field.cs" />
