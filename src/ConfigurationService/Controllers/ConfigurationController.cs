@@ -24,7 +24,10 @@ namespace ConfigurationService.Controllers
         public async Task<IActionResult> GetAsync(string entityName)
         {
             var entityConfiguration = await _entityConfigurationProvider.GetEntityConfigurationAsync(entityName);
-
+            if(entityConfiguration == null)
+            {
+                return StatusCode(500);
+            }
             return Ok(entityConfiguration);
         }
 
@@ -33,7 +36,8 @@ namespace ConfigurationService.Controllers
         public async Task<IActionResult> PostAsync([FromBody] EntityConfiguration entityConfiguration)
         {
             var status = await _entityConfigurationProvider.SaveEntityConfigurationAsync(entityConfiguration);
-
+            if (!status)
+                return StatusCode(500, status);
             return Ok(entityConfiguration);
         }
     }
